@@ -1,0 +1,51 @@
+// Variables --------
+// Global
+$large-screen: 1155px;
+$small-screen: 480px;
+
+@mixin mediaScreen($width: $small-screen) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin textSizeAdjust {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+@mixin button {
+  background-color: $primary-cta-colour;
+
+  & a {
+    font-size: 14px;
+    font-family: $secondary-font-family;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include textSizeAdjust;
+    padding: 17px 15px;
+    border: solid 1px $primary-cta-colour;
+    display: inline-block;
+  }
+}
+
+// Colours
+$primary-cta-colour: #005eff;
+$primary-text-colour: #020202;
+$preview-text-colour: #888888;
+
+// Typography
+$primary-font-family: Helvetica, Arial, sans-serif;
+$secondary-font-family: Arial, sans-serif;
+$primary-font-weight: 500;
+$h1-font-size: 42px;
+$h1-line-height: 50px;
+$h2-font-size: 36px;
+$h2-line-height: 38px;
+$p-font-size: 18px;
+$p-line-height: 28px;
+$preview-text-size: 12px;

@@ -1,0 +1,52 @@
+//import reset
+@import "reset";
+//import the style guide
+@import "style";
+
+// General styles
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $primary-cta-colour;
+  text-decoration: none;
+  @include textSizeAdjust;
+}
+
+img {
+  display: block;
+  border: 0;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+table {
+  table-layout: fixed;
+}
+
+.button {
+  td {
+    @include button;
+  }
+}
+
+// Header
+.preheader {
+  padding-top: 5px;
+  font-family: $primary-font-family;
+  font-size: $preview-text-size;
+  font-weight: $primary-font-weight;
+  line-height: 15px;
+  text-align: center;
+  color: $preview-text-colour;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Body

@@ -1,0 +1,24 @@
+{
+  "name": "email-workflow",
+  "version": "1.0.0",
+  "description": "A workflow for html email development using Sass and Panini",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Bister",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-inline-css": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "panini": "^1.5.1",
+    "siphon-media-query": "^1.0.0"
+  }
+}
