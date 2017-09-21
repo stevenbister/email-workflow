@@ -21,7 +21,14 @@ gulp.task('pages', function() {
     partials: 'app/partials/',
     helpers: 'app/helpers/'
   }))
-  .pipe(gulp.dest('build'));
+  .pipe(gulp.dest('build'))
+  .on('finish', browserSync.reload);
+});
+//refresh the pages to recomiple layouts etc. this needs to happen as the pages task will not refresh on it's own
+gulp.task('pages:reset', function(done) {
+  panini.refresh();
+  gulp.run('pages');
+  done();
 });
 
 //compile sass
@@ -34,12 +41,6 @@ gulp.task('sass', function() {
 });
 gulp.task('sass:watch', function() {
   gulp.watch('app/assets/sass/**/*.scss', ['sass']);
-});
-
-//reload browser and ensure that 'pages' is run before task is complete
-gulp.task('reload', ['pages'], function(done) {
-  browserSync.reload();
-  done();
 });
 
 //watch files and launch browser-sync
@@ -56,8 +57,8 @@ gulp.task('watch', ['sass:watch', 'pages'], function() {
       baseDir: "build"
     }
   });
-
-  gulp.watch('app/**/*.html', ['reload']);
+  //watch panini files and refresh on save
+  gulp.watch(['app/{layouts,partials,helpers}/**/*'], ['pages:reset']);
 });
 
 //delete the dist folder so we're starting fresh
