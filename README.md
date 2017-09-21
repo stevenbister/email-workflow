@@ -1,6 +1,6 @@
 # Workflow for creating email templates
 
-This workflow is based off [Foundation for Emails](http://foundation.zurb.com/emails) and powered by [gulp](https://gulpjs.com/).
+This workflow is inspired by [Foundation for Emails](http://foundation.zurb.com/emails) and powered by [gulp](https://gulpjs.com/).
 
 Feel free to fork or contribute!
 
