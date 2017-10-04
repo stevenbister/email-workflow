@@ -78,15 +78,16 @@ gulp.task('compressImages', function() {
 //inline css remove link to external sheet & embed media queries
 gulp.task('inline', function() {
   var css = fs.readFileSync('build/css/main.css').toString(),
+      amf = fs.readFileSync('build/css/amf.css').toString(),
       mediaQuery = siphon(css);
 
   return gulp.src('build/**/*.html')
   .pipe(inlineCss({
     applyStyleTags: false,
-    removeStyleTags: true,
-    preserveMediaQueries: true,
-    removeLinkTags: false
+    removeStyleTags: false,
+    preserveMediaQueries: true
   }))
+  .pipe(replace('<!-- <amf> -->', '<style amf:inline>' + amf + '</style>')) //don't inline this sylesheet so that amf can use these classes dynamically in the builder
   .pipe(replace('<!-- <media queries> -->', '<style>' + mediaQuery + '</style>'))
   .pipe(replace('<link rel="stylesheet" type="text/css" href="css/main.css">', ''))
   .pipe(gulp.dest('dist'));
