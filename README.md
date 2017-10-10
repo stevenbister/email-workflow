@@ -7,9 +7,11 @@ Feel free to fork or contribute!
 It utilises these features to make building easier:
 - [Panini](http://github.com/zurb/panini) a simple flat file generator by Zurb based on [Handlebars](http://handlebarsjs.com/)
 - [Sass](http://sass-lang.com/)
-- Image compression
-- Browser-sync
-- css inlining and media query embedding
+- [Image compression](https://www.npmjs.com/package/gulp-imagemin)
+- [gulp-uncss](https://www.npmjs.com/package/gulp-uncss)
+- [Browser-sync](https://browsersync.io/)
+- [css embedding](https://www.npmjs.com/package/gulp-replace)
+- [media query siphoning](https://github.com/zurb/siphon-media-query)
 
 ## How it works
 
