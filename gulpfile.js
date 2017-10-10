@@ -1,11 +1,9 @@
 var gulp  = require('gulp'),
-    rename = require('gulp-rename'),
-    inline = require('gulp-inline-css'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    inlineCss = require('gulp-inline-css'),
     replace = require('gulp-replace'),
+    replaceQuotes = require('gulp-replace-quotes'),
     imagemin = require('gulp-imagemin'),
+    uncss = require('gulp-uncss'),
     fs = require('fs'),
     browserSync = require('browser-sync').create(),
     del = require('del'),
@@ -36,7 +34,6 @@ gulp.task('sass', function() {
   return gulp.src('app/assets/sass/**/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
-  //.pipe(sourcemaps.write('./css/maps'))
   .pipe(gulp.dest('build/css'));
 });
 gulp.task('sass:watch', function() {
@@ -58,7 +55,7 @@ gulp.task('watch', ['sass:watch', 'pages'], function() {
     }
   });
   //watch panini files and refresh on save
-  gulp.watch(['app/{layouts,partials,helpers}/**/*'], ['pages:reset']);
+  gulp.watch(['app/{root,layouts,partials,helpers}/**/*'], ['pages:reset']);
 });
 
 //delete the dist folder so we're starting fresh
@@ -75,23 +72,30 @@ gulp.task('compressImages', function() {
   .pipe(gulp.dest('dist/img'))
 });
 
-//inline css remove link to external sheet & embed media queries
-gulp.task('inline', function() {
+//remove unused css selectors and replace double quotes with single quotes
+gulp.task('tidycss', function() {
+  return gulp.src('build/css/main.css')
+  .pipe(uncss({
+    html: ['build/newsletter.html']
+  }))
+  .pipe(replaceQuotes({
+    quote: 'single'
+  }))
+  .pipe(gulp.dest('build/css'));
+});
+
+//insert css remove link to external sheet & embed media queries
+gulp.task('insert', function() {
+  //set stylesheets to stings and siphon out media queries
   var css = fs.readFileSync('build/css/main.css').toString(),
-      amf = fs.readFileSync('build/css/amf.css').toString(),
       mediaQuery = siphon(css);
 
   return gulp.src('build/**/*.html')
-  .pipe(inlineCss({
-    applyStyleTags: false,
-    removeStyleTags: false,
-    preserveMediaQueries: true
-  }))
-  .pipe(replace('<!-- <amf> -->', '<style amf:inline>' + amf + '</style>')) //don't inline this sylesheet so that amf can use these classes dynamically in the builder
+  .pipe(replace('<!-- <style> -->', '<style amf:inline>' + css + '</style>'))
   .pipe(replace('<!-- <media queries> -->', '<style>' + mediaQuery + '</style>'))
   .pipe(replace('<link rel="stylesheet" type="text/css" href="css/main.css">', ''))
   .pipe(gulp.dest('dist'));
 });
 
 //compile
-gulp.task('compile', ['deleteDistFolder', 'compressImages', 'inline']);
+gulp.task('compile', ['deleteDistFolder', 'compressImages', 'tidycss', 'insert']);

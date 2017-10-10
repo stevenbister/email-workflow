@@ -13,11 +13,10 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^3.3.0",
-    "gulp-inline-css": "^3.1.0",
-    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
+    "gulp-replace-quotes": "^1.0.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uncss": "^1.0.6",
     "panini": "^1.5.1",
     "siphon-media-query": "^1.0.0"
   }
