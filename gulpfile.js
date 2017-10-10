@@ -76,7 +76,19 @@ gulp.task('compressImages', function() {
 gulp.task('tidycss', function() {
   return gulp.src('build/css/main.css')
   .pipe(uncss({
-    html: ['build/newsletter.html']
+    html: ['build/newsletter.html'],
+    //list selectors for unused css to ignore e.g. client specific selectors
+    ignore: [
+      '#outlook a',
+      '.ExternalClass',
+      '.ExternalClass p',
+      '.ExternalClass span',
+      '.ExternalClass font',
+      '.ExternalClass td',
+      '.ExternalClass div',
+      '#backgroundTable',
+      '.image_fix'
+    ]
   }))
   .pipe(replaceQuotes({
     quote: 'single'
