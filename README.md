@@ -17,14 +17,17 @@ The workflow is split into three directories; app, build and dist. App holds all
 
 When the `gulp watch` command is run all of these files are compiled and served out of the build folder so you shouldn't really have to touch this one.
 
-The dist folder is then created when `gulp compile` is run. This folder will contain a version of the file in build but with the css inlined and the images compressed. This is the launch ready file.
+The dist folder is then created when `gulp compile` is run. This folder will contain a version of the file in build but with the css embedded and the images compressed.
+**This is the launch ready file.**
 
 ## Gulp commands
 
 ### Main gulp commands
 
-- `gulp watch` will run Panini, compile Sass and start Browser-sync ready for development. Run this to start developing
-- `gulp compile` will inline the css, embed the media queries and compress the images ready for sending. Run this once your email is ready for testing
+- `gulp watch` will run Panini, compile Sass and start Browser-sync ready for development.
+**Run this to start developing**
+- `gulp compile` will delete the dist folder, compress the images, tidy the css then embed the css & media queries ready for sending.
+**Run this once you are ready to test/send**
 
 ### Other gulp commands
 
@@ -34,4 +37,5 @@ These commands are included in the main gulp commands but from time to time you 
 - `gulp sass:watch` will complile & watch the Sass files
 - `gulp deleteDistFolder` deletes the dist folder
 - `gulp compressImages` compresses the images and logs info on how much the file in compressed
-- `gulp inline` inline css & embed media queries into the dist folder
+- `tidycss` removes any unused css selectors from build/main.css and replaces any double quotes with single quotes
+- `gulp insert` insert css & embed media queries into the dist folder
