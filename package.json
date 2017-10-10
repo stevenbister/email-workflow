@@ -1,6 +1,6 @@
 {
   "name": "email-workflow",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A workflow for html email development using Sass and Panini",
   "main": "index.js",
   "scripts": {
