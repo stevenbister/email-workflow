@@ -39,5 +39,5 @@ These commands are included in the main gulp commands but from time to time you 
 - `gulp sass:watch` will complile & watch the Sass files
 - `gulp deleteDistFolder` deletes the dist folder
 - `gulp compressImages` compresses the images and logs info on how much the file in compressed
-- `tidycss` removes any unused css selectors from build/main.css and replaces any double quotes with single quotes
+- `gulp tidycss` removes any unused css selectors from build/main.css and replaces any double quotes with single quotes
 - `gulp insert` insert css & embed media queries into the dist folder
