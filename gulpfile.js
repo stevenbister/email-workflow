@@ -4,6 +4,7 @@ var gulp  = require('gulp'),
     replaceQuotes = require('gulp-replace-quotes'),
     imagemin = require('gulp-imagemin'),
     uncss = require('gulp-uncss'),
+    sequence = require('gulp-sequence'),
     fs = require('fs'),
     browserSync = require('browser-sync').create(),
     del = require('del'),
@@ -76,7 +77,7 @@ gulp.task('compressImages', function() {
 gulp.task('tidycss', function() {
   return gulp.src('build/css/main.css')
   .pipe(uncss({
-    html: ['build/newsletter.html'],
+    html: ['build/**/*.html'],
     //list selectors for unused css to ignore e.g. client specific selectors
     ignore: [
       '#outlook a',
@@ -110,4 +111,4 @@ gulp.task('insert', function() {
 });
 
 //compile
-gulp.task('compile', ['deleteDistFolder', 'compressImages', 'tidycss', 'insert']);
+gulp.task('compile', sequence('deleteDistFolder', ['compressImages', 'tidycss'], 'insert'));
