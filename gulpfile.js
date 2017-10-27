@@ -1,5 +1,7 @@
 var gulp  = require('gulp'),
     sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    rename = require('gulp-rename'),
     replace = require('gulp-replace'),
     replaceQuotes = require('gulp-replace-quotes'),
     imagemin = require('gulp-imagemin'),
@@ -35,6 +37,8 @@ gulp.task('sass', function() {
   return gulp.src('app/assets/sass/**/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
+  .pipe(gulp.dest('build/css'))
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('build/css'));
 });
 gulp.task('sass:watch', function() {

@@ -47,7 +47,8 @@ table {
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt; }
 
-* {
+table,
+td {
   box-sizing: border-box; }
 
 a {
@@ -95,3 +96,5 @@ table {
   color: #888888; }
   .preheader p {
     margin: 0; }
+
+/*# sourceMappingURL=main.css.map */
