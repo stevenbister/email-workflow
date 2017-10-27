@@ -16,3 +16,36 @@
     color: $primary-cta-colour;
   }
 }
+
+.header {
+  &__logo {
+    td {
+      padding: 16px 0;
+    }
+
+    @include mediaScreen {
+      width: 100% !important;
+    }
+
+    img {
+      display: inline;
+      max-width: 300px;
+    }
+  }
+
+  &__menu {
+
+    td {
+      padding: 16px 0;
+
+      @include mediaScreen {
+        padding: 8px 0 !important;
+      }
+    }
+
+    .menu-item {
+      padding: 0 10px;
+    }
+  }
+
+}

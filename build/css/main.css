@@ -125,6 +125,26 @@ a {
 .preheader a {
   color: #005eff; }
 
+.header__logo td {
+  padding: 16px 0; }
+
+@media only screen and (max-width: 480px) {
+  .header__logo {
+    width: 100% !important; } }
+
+.header__logo img {
+  display: inline;
+  max-width: 300px; }
+
+.header__menu td {
+  padding: 16px 0; }
+  @media only screen and (max-width: 480px) {
+    .header__menu td {
+      padding: 8px 0 !important; } }
+
+.header__menu .menu-item {
+  padding: 0 10px; }
+
 .padding--0 {
   padding: 0px; }
 
