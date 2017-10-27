@@ -1,0 +1,23 @@
+.footer {
+  p, a {
+    font-size: $p-font-size;
+    text-align: center;
+  }
+
+  &__menu {
+    margin: 0 auto;
+
+    .menu {
+      &-item {
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+      }
+
+      &-divider {
+        padding-top: 10px;
+        padding-bottom: 14px;
+      }
+    }
+  }
+}

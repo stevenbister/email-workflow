@@ -40,6 +40,7 @@ h2 {
 }
 
 p {
+  @include pMargin(12px);
   font-size: $p-font-size;
   line-height: $p-line-height;
 }

@@ -83,8 +83,10 @@ h2 {
   line-height: 38px; }
 
 p {
-  font-size: 18px;
-  line-height: 28px; }
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 24px; }
 
 a {
   color: #005eff;
@@ -144,6 +146,20 @@ a {
 
 .header__menu .menu-item {
   padding: 0 10px; }
+
+.footer p, .footer a {
+  font-size: 16px;
+  text-align: center; }
+
+.footer__menu {
+  margin: 0 auto; }
+  .footer__menu .menu-item {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center; }
+  .footer__menu .menu-divider {
+    padding-top: 10px;
+    padding-bottom: 14px; }
 
 .padding--0 {
   padding: 0px; }
