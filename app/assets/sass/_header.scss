@@ -21,6 +21,10 @@
   &__logo {
     td {
       padding: 16px 0;
+
+      @include mediaScreen {
+        padding-bottom: 8px;
+      }
     }
 
     @include mediaScreen {
@@ -45,6 +49,10 @@
 
     .menu-item {
       padding: 0 10px;
+
+      @include mediaScreen {
+        padding: 0 10px !important;
+      }
     }
   }
 
