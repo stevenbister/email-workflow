@@ -50,67 +50,80 @@ Emails are structured using a table layout structure, with the classes;
 
 - `wrapper` a full width table that wraps around the main body of the email
 
-`<table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper">
+```
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper">
   <tr>
     <td align="center">
       content
     </td>
   </tr>
-</table>`
+</table>
+```
 
 - `container` placed within that and given a set width (e.g. 600px)
 
-`<table cellpadding="0" cellspacing="0" border="0" width="600" class="container">
+```
+<table cellpadding="0" cellspacing="0" border="0" width="600" class="container">
   <tbody>
     <tr>
       <td align="center">All the rows go here</td>
     </tr>
   </tbody>
-</table>`
+</table>
+```
 
 - `row` placed within the container table with a width of 100%
 
-`<table cellpadding="0" cellspacing="0" border="0" width="100%" class="row">
+```
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="row">
   <tbody>
     <tr>
       <td align="center">Columns go here</td>
     </tr>
   </tbody>
-</table>`
+</table>
+```
 
 - `column` placed within the row table, if you want to use more than one column set a width here and make sure to add `<!--[if mso]></td><td><![end if]-->` after the closing table tag to stop Outlook adding extra spacing between your columns.
 
-`<table cellpadding="0" cellspacing="0" border="0" width="300" class="column">
+```
+<table cellpadding="0" cellspacing="0" border="0" width="300" class="column">
   <tbody>
     <tr>
       <td align="center">Column content goes in here</td>
     </tr>
   </tbody>
-</table>`
+</table>
+```
 
 ### Components
 
 - `button` a table based button - works for most email clients **needs to be revised for Outlook.com - currently stripping the padding from the `a` tag**
 
-`<table align="center" class="button">
+```
+<table align="center" class="button">
     <tr>
         <td align="center">
             <a href="#" target="_blank" linklabel="">Click here</a>
         </td>
     </tr>
-</table>`
+</table>
+```
 
 - `spacer` a table based spacer to use rather than margin or padding as outlook can cause some interesting results. This is currently the most consistent way of adding spaces between elements. Just adjust the `font-size` to the height you want the space to be.
 
-`<table align="center">
+```
+<table align="center">
     <tr>
         <td style="font-size: 10px; line-height: 100%;">&nbsp;</td>
     </tr>
-</table>`
+</table>
+```
 
 - `menu` a nested horizontal menu
 
-`<table cellpadding="0" cellspacing="0" border="0" class="menu">
+```
+<table cellpadding="0" cellspacing="0" border="0" class="menu">
   <tr>
     <td>
       <table cellpadding="0" cellspacing="0" border="0">
@@ -122,4 +135,5 @@ Emails are structured using a table layout structure, with the classes;
       </table>
     </td>
   </tr>
-</table>`
+</table>
+```
