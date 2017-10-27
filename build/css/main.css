@@ -75,18 +75,18 @@ h1, h2, h3, p {
 
 h1 {
   margin-top: 0;
-  font-size: 42px;
-  line-height: 50px; }
+  font-size: 24px;
+  line-height: 28px; }
 
 h2 {
-  font-size: 36px;
-  line-height: 38px; }
+  font-size: 22px;
+  line-height: 26px; }
 
 p {
   margin-top: 12px;
   margin-bottom: 12px;
-  font-size: 16px;
-  line-height: 24px; }
+  font-size: 14px;
+  line-height: 22px; }
 
 a {
   color: #005eff;
@@ -105,7 +105,7 @@ a {
     letter-spacing: 2px;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    padding: 17px 15px;
+    padding: 12px 10px;
     border: solid 1px #005eff;
     display: inline-block; }
 
@@ -147,19 +147,20 @@ a {
 .header__menu .menu-item {
   padding: 0 10px; }
 
-.footer p, .footer a {
-  font-size: 16px;
-  text-align: center; }
-
-.footer__menu {
-  margin: 0 auto; }
-  .footer__menu .menu-item {
-    padding-left: 5px;
-    padding-right: 5px;
+.footer {
+  background-color: #d5d5d5; }
+  .footer p, .footer a {
+    font-size: 14px;
     text-align: center; }
-  .footer__menu .menu-divider {
-    padding-top: 10px;
-    padding-bottom: 14px; }
+  .footer__menu {
+    margin: 0 auto; }
+    .footer__menu .menu-item {
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center; }
+    .footer__menu .menu-divider {
+      padding-top: 10px;
+      padding-bottom: 14px; }
 
 .padding--0 {
   padding: 0px; }
