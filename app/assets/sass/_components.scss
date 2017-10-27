@@ -1,0 +1,32 @@
+// Button
+@mixin button($bgcolor: $primary-cta-colour, $color: #ffffff) {
+  background-color: $bgcolor;
+
+  & a {
+    font-size: 14px;
+    font-family: $secondary-font-family;
+    font-weight: 300;
+    color: $color;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include textSizeAdjust;
+    padding: 17px 15px;
+    border: solid 1px $bgcolor;
+    display: inline-block;
+  }
+}
+
+.button {
+  td {
+    @include button();
+  }
+}
+
+// Structual tables
+.container, .row, .column {
+  @include mediaScreen {
+    width: 100% !important;
+  }
+}

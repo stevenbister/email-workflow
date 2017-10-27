@@ -1,0 +1,50 @@
+//bme = box model element
+@each $bme in padding, margin {
+  .#{$bme} {
+    @for $i from 0 through 60 {
+      &--#{$i} {
+        #{$bme}: 0px + $i;
+      }
+
+      @each $dir in top, right, bottom, left {
+        &-#{$dir}--#{$i} {
+          #{$bme}-#{$dir}: 0px + $i;
+        }
+      }
+
+    }
+  }
+}
+
+.mob{
+  @include mediaScreen {
+    &--none {
+      display: none !important;
+    }
+    &--fl-none {
+      float: none !important;
+    }
+    &--padding {
+      padding: 0 10px !important;
+    }
+    &--center {
+        display: block;
+        margin: 0 auto;
+    }
+    &--width {
+      @each $width in 50, 75, 90, 100 {
+        &-#{$width} {
+          width: 0% + $width !important;
+        }
+      }
+    }
+  }
+}
+
+.text {
+  &--center {
+    h1, h2, h3, h4, p, a {
+      text-align: center;
+    }
+  }
+}

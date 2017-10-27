@@ -14,24 +14,6 @@ $small-screen: 480px;
   -ms-text-size-adjust: 100%;
 }
 
-@mixin button {
-  background-color: $primary-cta-colour;
-
-  & a {
-    font-size: 14px;
-    font-family: $secondary-font-family;
-    font-weight: 300;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    @include textSizeAdjust;
-    padding: 17px 15px;
-    border: solid 1px $primary-cta-colour;
-    display: inline-block;
-  }
-}
 
 // Colours
 $primary-cta-colour: #005eff;
@@ -49,3 +31,4 @@ $h2-line-height: 38px;
 $p-font-size: 18px;
 $p-line-height: 28px;
 $preview-text-size: 12px;
+$preview-text-line-height: 16px;

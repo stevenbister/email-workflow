@@ -1,0 +1,18 @@
+.preheader {
+  td {
+    padding: 5px 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: $preview-text-size;
+    font-family: $secondary-font-family;
+    line-height: $preview-text-line-height;
+    color: $preview-text-colour;
+    text-align: center;
+  }
+
+  a {
+    color: $primary-cta-colour;
+  }
+}
