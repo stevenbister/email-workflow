@@ -1,40 +1,40 @@
 // Dependencies
-var gulp  = require('gulp'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rename = require('gulp-rename'),
-    replace = require('gulp-replace'),
+var gulp          = require('gulp'),
+    sass          = require('gulp-sass'),
+    sourcemaps    = require('gulp-sourcemaps'),
+    rename        = require('gulp-rename'),
+    replace       = require('gulp-replace'),
     replaceQuotes = require('gulp-replace-quotes'),
-    imagemin = require('gulp-imagemin'),
-    uncss = require('gulp-uncss'),
-    sequence = require('gulp-sequence'),
-    fs = require('fs'),
-    browserSync = require('browser-sync').create(),
-    del = require('del'),
-    panini = require('panini'),
-    siphon = require('siphon-media-query');
+    imagemin      = require('gulp-imagemin'),
+    uncss         = require('gulp-uncss'),
+    sequence      = require('gulp-sequence'),
+    fs            = require('fs'),
+    browserSync   = require('browser-sync').create(),
+    del           = require('del'),
+    panini        = require('panini'),
+    siphon        = require('siphon-media-query');
 
 // Paths
 var paths = {
-  app: 'app/**/*',
-  appHTML: 'app/**/*.html',
-  appSass: 'app/assets/sass/**/*.scss',
-  appIMG: 'app/assets/images/**/*',
+  app:        'app/**/*',
+  appHTML:    'app/**/*.html',
+  appSass:    'app/assets/sass/**/*.scss',
+  appIMG:     'app/assets/images/**/*',
 
-  build: 'build',
-  buildHTML: 'build/**/*.html',
-  buildCSS: 'build/css/',
-  buildIMG: 'build/images/'
+  build:      'build',
+  buildHTML:  'build/**/*.html',
+  buildCSS:   'build/css/',
+  buildIMG:   'build/images/'
 }
 
 //compile pages, layouts and partials
 gulp.task('pages', function() {
   gulp.src('app/pages/**/*.html')
   .pipe(panini({
-    root: 'app/pages/',
-    layouts: 'app/layouts/',
+    root:     'app/pages/',
+    layouts:  'app/layouts/',
     partials: 'app/partials/',
-    helpers: 'app/helpers/'
+    helpers:  'app/helpers/'
   }))
   .pipe(gulp.dest('build'))
   .on('finish', browserSync.reload);
@@ -52,7 +52,7 @@ gulp.task('sass', function() {
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('build/css'));
+  .pipe(gulp.dest(paths.buildCSS));
 });
 gulp.task('sass:watch', function() {
   gulp.watch(paths.appSass, ['sass']);
@@ -123,8 +123,8 @@ gulp.task('tidycss', function() {
 //insert css remove link to external sheet & embed media queries
 gulp.task('insert', function() {
   //set stylesheets to stings and siphon out media queries
-  var css = fs.readFileSync(paths.buildCSS + 'main.css').toString(),
-      mediaQuery = siphon(css);
+  var css         = fs.readFileSync(paths.buildCSS + 'main.css').toString(),
+      mediaQuery  = siphon(css);
 
   return gulp.src(paths.buildHTML)
   .pipe(replace('<!-- <style> -->', '<style amf:inline>' + css + '</style>'))
