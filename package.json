@@ -1,6 +1,6 @@
 {
   "name": "email-workflow",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A workflow for html email development using Sass and Panini",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,9 @@
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-imagemin": "^3.3.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-replace-quotes": "^1.0.1",
@@ -25,6 +26,9 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uncss": "^1.0.6",
     "panini": "^1.5.1",
-    "siphon-media-query": "^1.0.0"
+    "siphon-media-query": "^1.0.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-scss": "^3.4.1"
   }
 }
