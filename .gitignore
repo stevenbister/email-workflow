@@ -1,30 +1,50 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-node_modules/
-dist/
-.tmp/
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# Useful .gitignore templates: https://github.com/github/gitignore
 
-# OS or Editor folders
-.DS_Store
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore node dependency directories
+node_modules/
+
+# ignore vendor directories
+/vendor
+
+# ignore OS generated files
+ehthumbs.db
 Thumbs.db
-.cache
-.project
-.settings
-.tmproj
-*.esproj
-nbproject
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
-.komodotools
-_notes
-dwsync.xml
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ignore Sass/css cache and maps
+*.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# ignore build directories
+/_site
+/dist
