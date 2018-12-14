@@ -19,7 +19,7 @@ const APP = {
   root: 'app/',
   html: 'app/**/*.html',
   pages: 'app/pages/**/*.html',
-  styles: 'app/assets/sass/**/*.scss',
+  styles: 'app/assets/scss/**/*.scss',
   img: 'app/assets/images/**/*'
 }
 

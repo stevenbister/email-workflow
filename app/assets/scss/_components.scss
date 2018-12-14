@@ -23,10 +23,3 @@
     @include button();
   }
 }
-
-// Structual tables
-.container, .row, .column {
-  @include mediaScreen {
-    width: 100% !important;
-  }
-}

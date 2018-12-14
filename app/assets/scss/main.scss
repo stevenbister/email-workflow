@@ -1,22 +1,26 @@
 //Reset
 // Fixes/works around some default email client settings
 @import "reset";
+
 //Style guide
 // Contains colours, typography and size settings
 @import "style";
+
 // Global styles
 @import "global";
+
 // Components
-// Buttons etc.
 @import "components";
+
+// Layout
+@import "layout";
+
 // Header
 @import "header";
-// Body
-@import "body";
+
 // Footer
 @import "footer";
-// amf editor styles
-@import "amf";
+
 // Modifiers
 // Contains class based modifiers for adding margin or padding for example as well as some mobile specific styling
 @import "modifiers";
