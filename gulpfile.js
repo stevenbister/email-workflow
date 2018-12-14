@@ -1,137 +1,150 @@
-// Dependencies
-var gulp          = require('gulp'),
-    sass          = require('gulp-sass'),
-    sourcemaps    = require('gulp-sourcemaps'),
-    rename        = require('gulp-rename'),
-    replace       = require('gulp-replace'),
-    replaceQuotes = require('gulp-replace-quotes'),
-    imagemin      = require('gulp-imagemin'),
-    uncss         = require('gulp-uncss'),
-    sequence      = require('gulp-sequence'),
-    fs            = require('fs'),
-    browserSync   = require('browser-sync').create(),
-    del           = require('del'),
-    panini        = require('panini'),
-    siphon        = require('siphon-media-query');
+// Packages
+// Gulp packages are loaded through gulp-load-plugins
+const { src, dest, watch, series, parallel } = require('gulp')
+const browserSync = require('browser-sync')
+const fs = require('fs')
+const del = require('del')
+const panini = require('panini')
+const siphon = require('siphon-media-query')
+const gulpLoadPlugins = require('gulp-load-plugins')
+const PLUGIN = gulpLoadPlugins({
+  rename: {
+    'gulp-replace-quotes': 'replaceQuotes'
+  }
+})
 
-// Paths
-var paths = {
-  app:        'app/**/*',
-  appHTML:    'app/**/*.html',
-  appSass:    'app/assets/sass/**/*.scss',
-  appIMG:     'app/assets/images/**/*',
-
-  build:      'build',
-  buildHTML:  'build/**/*.html',
-  buildCSS:   'build/css/',
-  buildIMG:   'build/images/'
+// Project app folders
+// All edits are made here
+const APP = {
+  root: 'app/',
+  html: 'app/**/*.html',
+  pages: 'app/pages/**/*.html',
+  styles: 'app/assets/sass/**/*.scss',
+  img: 'app/assets/images/**/*'
 }
 
-//compile pages, layouts and partials
-gulp.task('pages', function() {
-  gulp.src('app/pages/**/*.html')
-  .pipe(panini({
-    root:     'app/pages/',
-    layouts:  'app/layouts/',
-    partials: 'app/partials/',
-    helpers:  'app/helpers/'
-  }))
-  .pipe(gulp.dest('build'))
-  .on('finish', browserSync.reload);
-});
-//refresh the pages to recomiple layouts etc. this needs to happen as the pages task will not refresh on it's own
-gulp.task('pages:reset', function(done) {
-  panini.refresh();
-  gulp.run('pages');
-  done();
-});
+// Project build folders
+// Edits made in app folder are built here for viewing
+const BUILD = {
+  root: 'build/',
+  html: 'build/**/*.html',
+  styles: 'build/css/',
+  img: 'build/images/'
+}
 
-//compile sass
-gulp.task('sass', function() {
-  return gulp.src(paths.appSass)
-  .pipe(sourcemaps.init())
-  .pipe(sass().on('error', sass.logError))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(paths.buildCSS));
-});
-gulp.task('sass:watch', function() {
-  gulp.watch(paths.appSass, ['sass']);
-});
+// Compile pages, layouts and partials into one file
+function pages () {
+  return src(APP.pages)
+    .pipe(panini({
+      root: 'app/pages/',
+      layouts: 'app/layouts/',
+      partials: 'app/partials/',
+      helpers:  'app/helpers/'
+    }))
+    .pipe(dest(BUILD.root))
+    .on('finish', browserSync.reload)
+}
+exports.pages = pages
 
-//copy images into build folder
-gulp.task('copyImages', function() {
-  return gulp.src(paths.appIMG)
-  .pipe(gulp.dest(paths.buildIMG));
-});
+// Refresh pages to rebuild layouts etc. this needs to happen as the pages task will not refresh on it's own
+function pagesRefresh (done) {
+  panini.refresh()
+  done()
+}
+exports.pagesRefresh = pagesRefresh
 
-//watch files and launch browser-sync
-gulp.task('watch', ['sass:watch', 'pages', 'copyImages'], function() {
-  var files = [
-      paths.appHTML,
-      paths.appIMG,
-      paths.buildCSS + '**/*.css'
-  ];
+// Compile scss
+function styles () {
+  return src(APP.styles)
+    .pipe(PLUGIN.sourcemaps.init())
+    .pipe(PLUGIN.sass().on('error', PLUGIN.sass.logError))
+    .pipe(PLUGIN.sourcemaps.write('./'))
+    .pipe(dest(BUILD.styles))
+}
+exports.styles = styles
+
+// Copy images into the build folder
+function copyImages () {
+  return src(APP.img)
+    .pipe(dest(BUILD.img))
+}
+exports.copyImages = copyImages
+
+// Compress images
+function compressImages () {
+  return src(BUILD.img + '**/*')
+    .pipe(PLUGIN.imagemin({
+      verbose: true
+    }))
+    .pipe(dest('dist/images'))
+}
+exports.compressImages = compressImages
+
+// Browsersync
+function browsersync () {
+  // Watch these files
+  let files = [
+    BUILD.styles + '**/*.css'
+  ]
 
   browserSync.init(files, {
-    notify: false,
     server: {
-      baseDir: paths.build
+      baseDir: BUILD.root
     }
-  });
-  //watch panini files and refresh on save
-  gulp.watch(['app/{root,layouts,partials,helpers}/**/*'], ['pages:reset']);
-});
+  })
 
-//delete the dist folder so we're starting fresh
-gulp.task('deleteDistFolder', function() {
-  return del('dist');
-});
+  watch(APP.img, parallel(copyImages))
+  watch(APP.styles, parallel(styles))
+  watch(APP.html, parallel(pages))
+  // Watch panini files and refresh on save
+  watch(['app/{root,layouts,pages,partials}/**/*'], series(pagesRefresh))
+}
+exports.browsersync = browsersync
 
-//compress images
-gulp.task('compressImages', function() {
-  gulp.src(paths.buildIMG + '**/*')
-  .pipe(imagemin({
-    verbose: true
-  }))
-  .pipe(gulp.dest('dist/images'))
-});
+// Delete dist folder so we're starting fresh
+function deleteDistFolder (cb) {
+  return del('dist', cb)
+}
+exports.deleteDistFolder = deleteDistFolder
 
-//remove unused css selectors and replace double quotes with single quotes
-gulp.task('tidycss', function() {
-  return gulp.src(paths.buildCSS + 'main.css')
-  .pipe(uncss({
-    html: [paths.buildHTML],
-    //list selectors for unused css to ignore e.g. client specific selectors
-    ignore: [
-      '#outlook a',
-      '.ExternalClass',
-      '.ExternalClass p',
-      '.ExternalClass span',
-      '.ExternalClass font',
-      '.ExternalClass td',
-      '.ExternalClass div',
-      '#backgroundTable',
-      '.image_fix'
-    ]
-  }))
-  .pipe(replaceQuotes({
-    quote: 'single'
-  }))
-  .pipe(gulp.dest(paths.buildCSS));
-});
+// Remove unused css selectors and replace double quotes with single quotes
+function tidycss () {
+  return src(BUILD.styles + 'main.css')
+    .pipe(PLUGIN.uncss({
+      html: [BUILD.html],
+      // List selectors for unused css to ignore e.g. client specific selectors
+      ignore: [
+        '#outlook a',
+        '.ExternalClass',
+        '.ExternalClass p',
+        '.ExternalClass span',
+        '.ExternalClass font',
+        '.ExternalClass td',
+        '.ExternalClass div',
+        '#backgroundTable',
+        '.image_fix'
+      ]
+    }))
+    .pipe(PLUGIN.replaceQuotes({
+      quote: 'single'
+    }))
+    .pipe(dest(BUILD.styles))
+}
+exports.tidycss = tidycss
 
-//insert css remove link to external sheet & embed media queries
-gulp.task('insert', function() {
-  //set stylesheets to stings and siphon out media queries
-  var css         = fs.readFileSync(paths.buildCSS + 'main.css').toString(),
-      mediaQuery  = siphon(css);
+// Embed css into file, remove link to external stylesheet and embed media queries
+function insert () {
+  // Set styleshees as strings and siphon media queries
+  let css = fs.readFileSync(BUILD.styles + 'main.css').toString()
+  let mediaQuery = siphon(css)
 
-  return gulp.src(paths.buildHTML)
-  .pipe(replace('<!-- <style> -->', '<style amf:inline>' + css + '</style>'))
-  .pipe(replace('<!-- <media queries> -->', '<style>' + mediaQuery + '</style>'))
-  .pipe(replace('<link rel="stylesheet" type="text/css" href="css/main.css">', ''))
-  .pipe(gulp.dest('dist'));
-});
+  return src(BUILD.html)
+    .pipe(PLUGIN.replace('<!-- <style> -->', '<style amf:inline>' + css + '</style>'))
+    .pipe(PLUGIN.replace('<!-- <media queries> -->', '<style>' + mediaQuery + '</style>'))
+    .pipe(PLUGIN.replace('<link rel="stylesheet" type="text/css" href="css/main.css">', ''))
+    .pipe(dest('dist'));
+}
+exports.insert = insert
 
-//compile
-gulp.task('compile', sequence('deleteDistFolder', ['compressImages', 'tidycss'], 'insert'));
+// Build all files and assets into dist folder
+exports.build = series(deleteDistFolder, compressImages, tidycss, insert)

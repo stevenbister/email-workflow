@@ -22,7 +22,6 @@
     "gulp-replace": "^0.6.1",
     "gulp-replace-quotes": "^1.0.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uncss": "^1.0.6",
     "panini": "^1.5.1",
