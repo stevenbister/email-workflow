@@ -1,4 +1,8 @@
-//bme = box model element
+/*
+ * @var: $bme = box model element
+ * @var: $dir = direction
+ */
+ 
 @each $bme in padding, margin {
   .#{$bme} {
     @for $i from 0 through 60 {
@@ -16,7 +20,7 @@
   }
 }
 
-.mob{
+.mob {
   @include breakpoint {
     &--none {
       display: none !important;
