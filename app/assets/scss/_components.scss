@@ -23,3 +23,14 @@
     @include button();
   }
 }
+
+// Menu
+@mixin menuItem($v-padding: 0, $h-padding: 10px) {
+  &-item {
+    padding: $v-padding $h-padding;
+
+      @include mediaScreen {
+        padding: $v-padding $h-padding !important;
+      }
+  }
+}

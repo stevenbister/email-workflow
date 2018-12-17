@@ -47,12 +47,8 @@
       }
     }
 
-    .menu-item {
-      padding: 0 10px;
-
-      @include mediaScreen {
-        padding: 0 10px !important;
-      }
+    .menu {
+      @include menuItem(0, 10px);
     }
   }
 

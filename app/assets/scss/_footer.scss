@@ -9,11 +9,7 @@
     margin: 0 auto;
 
     .menu {
-      &-item {
-        padding-left: 5px;
-        padding-right: 5px;
-        text-align: center;
-      }
+      @include menuItem(0, 5px);
 
       &-divider {
         padding-top: 10px;
