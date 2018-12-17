@@ -3,7 +3,7 @@
 $large-screen: 1155px;
 $small-screen: 480px;
 
-@mixin mediaScreen($width: $small-screen) {
+@mixin breakpoint($width: $small-screen) {
   @media only screen and (max-width: $width) {
     @content;
   }

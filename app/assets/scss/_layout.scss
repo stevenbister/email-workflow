@@ -1,6 +1,6 @@
 // Structual tables
 .container, .row, .column {
-  @include mediaScreen {
+  @include breakpoint {
     width: 100% !important;
   }
 }

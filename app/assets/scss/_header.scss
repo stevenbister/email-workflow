@@ -22,12 +22,12 @@
     td {
       padding: 16px 0;
 
-      @include mediaScreen {
+      @include breakpoint {
         padding-bottom: 8px;
       }
     }
 
-    @include mediaScreen {
+    @include breakpoint {
       width: 100% !important;
     }
 
@@ -42,7 +42,7 @@
     td {
       padding: 16px 0;
 
-      @include mediaScreen {
+      @include breakpoint {
         padding: 8px 0 !important;
       }
     }

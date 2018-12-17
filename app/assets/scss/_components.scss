@@ -29,7 +29,7 @@
   &-item {
     padding: $v-padding $h-padding;
 
-      @include mediaScreen {
+      @include breakpoint {
         padding: $v-padding $h-padding !important;
       }
   }

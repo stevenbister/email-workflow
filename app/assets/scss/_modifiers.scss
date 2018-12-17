@@ -17,7 +17,7 @@
 }
 
 .mob{
-  @include mediaScreen {
+  @include breakpoint {
     &--none {
       display: none !important;
     }
