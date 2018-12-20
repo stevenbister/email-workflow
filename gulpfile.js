@@ -7,6 +7,7 @@ const del = require('del')
 const panini = require('panini')
 const siphon = require('siphon-media-query')
 const gulpLoadPlugins = require('gulp-load-plugins')
+const uncss = require('postcss-uncss')
 const PLUGIN = gulpLoadPlugins({
   rename: {
     'gulp-replace-quotes': 'replaceQuotes'
@@ -109,8 +110,9 @@ exports.deleteDistFolder = deleteDistFolder
 
 // Remove unused css selectors and replace double quotes with single quotes
 function tidycss () {
-  return src(BUILD.styles + 'main.css')
-    .pipe(PLUGIN.uncss({
+
+  let postcssPlugins = [
+    uncss({
       html: [BUILD.html],
       // List selectors for unused css to ignore e.g. client specific selectors
       ignore: [
@@ -124,7 +126,11 @@ function tidycss () {
         '#backgroundTable',
         '.image_fix'
       ]
-    }))
+    })
+  ]
+
+  return src(BUILD.styles + 'main.css')
+    .pipe(PLUGIN.postcss(postcssPlugins))
     .pipe(PLUGIN.replaceQuotes({
       quote: 'single'
     }))

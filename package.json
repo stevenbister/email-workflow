@@ -18,16 +18,18 @@
     "gulp": "^4.0.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^1.0.0",
     "gulp-replace-quotes": "^1.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-uncss": "^1.0.6",
     "panini": "^1.5.1",
+    "postcss-uncss": "^0.16.1",
     "siphon-media-query": "^1.0.0",
     "stylelint": "^9.9.0",
     "stylelint-config-recommended": "^2.1.0",
-    "stylelint-scss": "^3.4.1"
+    "stylelint-scss": "^3.4.1",
+    "uncss": "^0.16.2"
   }
 }
