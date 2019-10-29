@@ -1,7 +1,7 @@
 // Packages
 // Gulp packages are loaded through gulp-load-plugins
 const { src, dest, watch, series, parallel } = require('gulp')
-const browserSync = require('browser-sync')
+const browserSync = require('browser-sync').create()
 const panini = require('panini')
 
 
@@ -24,3 +24,15 @@ function compilePages () {
     .pipe(dest('build/'))
 }
 exports.compilePages = compilePages
+
+// Browsersync
+function browsersync () {
+  // Init browsersync and serve files from build dir
+  // TODO: add files to watch
+  browserSync.init({
+    server: {
+      baseDir: 'build/'
+    }
+  })
+}
+exports.browsersync = browsersync
