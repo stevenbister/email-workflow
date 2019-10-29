@@ -1,6 +1,0 @@
-// Structual tables
-.container, .row, .column {
-  @include breakpoint {
-    width: 100% !important;
-  }
-}
