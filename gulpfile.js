@@ -4,6 +4,8 @@ const { src, dest, watch, series, parallel } = require('gulp')
 const browserSync = require('browser-sync').create()
 const panini = require('panini')
 
+// TODO: compile, tidy & insert css files
+// TODO:  create production ready function
 
 // Compile pages, layouts and partials into one file
 function compilePages () {
