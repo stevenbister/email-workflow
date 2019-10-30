@@ -1,0 +1,4 @@
+$color: crimson;
+p {
+  color: $color;
+}
