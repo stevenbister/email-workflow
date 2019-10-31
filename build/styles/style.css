@@ -1,5 +1,9 @@
-p {
-  color: crimson;
+.test {
+  border: solid 1px blue;
 }
+
+.test p {
+    /* color: $colour; */
+    color: crimson}
 
 /*# sourceMappingURL=style.css.map */

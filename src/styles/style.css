@@ -1,4 +1,14 @@
-$color: crimson;
-p {
+@define-mixin color $color {
   color: $color;
+}
+
+$colour: crimson;
+
+.test {
+  border: solid 1px blue;
+
+  p {
+    /* color: $colour; */
+    @mixin color $colour
+  }
 }

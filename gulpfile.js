@@ -5,6 +5,9 @@ const browserSync = require('browser-sync').create()
 const panini = require('panini')
 const sourcemaps = require('gulp-sourcemaps')
 const postcss = require('gulp-postcss')
+const postcssImport = require('postcss-import')
+const postcssMixins = require('postcss-mixins')
+const postcssNested = require('postcss-nested')
 const postcssVars = require('postcss-simple-vars')
 
 // TODO: create production ready function
@@ -42,6 +45,9 @@ function refreshPanini (done) {
 // Compile, tidy & insert css files
 function styles () {
   const plugins = [
+    postcssImport,
+    postcssMixins,
+    postcssNested,
     postcssVars
   ]
   // Return css, pcss or postcss files
@@ -55,6 +61,7 @@ function styles () {
     // // Write sourcemap
     .pipe(sourcemaps.write('./'))
     .pipe(dest('build/styles/'))
+    .pipe(browserSync.stream())
 }
 exports.styles = styles
 
