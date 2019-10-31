@@ -6,4 +6,11 @@
     /* color: $colour; */
     color: crimson}
 
+@media (max-width: 600px) {
+
+.test {
+    border: solid 1px red
+}
+  }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,23 +1,37 @@
-// Packages
+/**
+ * Packages
+ * --------
+ */
+
+// Gulp packages
 const { src, dest, watch, series, parallel } = require('gulp')
 const purgecss = require('gulp-purgecss')
-const browserSync = require('browser-sync').create()
-const panini = require('panini')
+const replace = require('gulp-replace')
 const sourcemaps = require('gulp-sourcemaps')
+
+// Zurb packages
+const panini = require('panini')
+const siphon = require('siphon-media-query')
+
+// Postcss packages
 const postcss = require('gulp-postcss')
 const postcssImport = require('postcss-import')
 const postcssMixins = require('postcss-mixins')
 const postcssNested = require('postcss-nested')
 const postcssVars = require('postcss-simple-vars')
 
-// TODO: create production ready function
+// Other
+const browserSync = require('browser-sync').create()
+const fs = require('fs')
+const del = require('del')
+
 // TODO: This is becoming a large file - break into individual files and import back here
 
 /**
  * Compile pages, layouts and partials
  * -----------------------------------
  */
-function compilePages () {
+function compilepages () {
   // Return all html files in pages dir/sub dir
   return src('src/pages/**/*.html')
     // Pass dirs through panini to compile
@@ -38,7 +52,7 @@ function compilePages () {
     .pipe(dest('build/'))
     .on('finish', browserSync.reload)
 }
-exports.compilePages = compilePages
+exports.compilepages = compilepages
 
 // Refresh pages to rebuild layouts etc. this needs to happen as the pages task will not refresh on it's own
 function refreshPanini (done) {
@@ -87,7 +101,6 @@ exports.styles = styles
  */
 function browsersync () {
   // Init browsersync and serve files from build dir
-  // TODO: add files to watch
   browserSync.init({
     server: {
       baseDir: 'build/'
@@ -101,3 +114,35 @@ function browsersync () {
   watch(['src/{root,layout,pages,partials}/**/*'], series(refreshPanini))
 }
 exports.browsersync = browsersync
+
+/**
+ * Embed css into file, remove link to external stylesheet and embed media queries
+ * -------------------------------------------------------------------------------
+ */
+async function embedcss () {
+  // Read the stylesheet in build dir and convert it to a string
+  const css = fs.readFileSync('build/styles/style.css').toString('utf8')
+  // Pull the media queries out of the file and store here
+  const mediaQuery = siphon(css)
+  await Promise.resolve()
+
+  return src('build/**/*.html')
+    // Embed the css over the style & media query comments found in the layout files
+    .pipe(replace('<!-- <style> -->', `<style amf:inline>${css}</style>`)) // The amf:inline tag is so Adestra will inline the css for me
+    .pipe(replace('<!-- <media queries> -->', `<style>${mediaQuery}</style>`))
+    // Remove linked stylesheet and reference to css map
+    .pipe(replace('<link rel="stylesheet" type="text/css" href="css/main.css">', ''))
+    .pipe(replace('/*# sourceMappingURL=style.css.map */', ''))
+    // Push to dist folder
+    .pipe(dest('dist/'))
+}
+
+/**
+ * Delete dist folder so we can start fresh build
+ * ----------------------------------------------
+ */
+function deletedist () {
+  return del('dist')
+}
+
+exports.build = series(deletedist, embedcss)

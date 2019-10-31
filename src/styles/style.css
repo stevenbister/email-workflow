@@ -15,4 +15,8 @@ $colour: crimson;
   .green {
     color: green;
   }
+
+  @media (max-width: 600px) {
+    border: solid 1px red;
+  }
 }
