@@ -1,5 +1,4 @@
 // Packages
-// Gulp packages are loaded through gulp-load-plugins
 const { src, dest, watch, series, parallel } = require('gulp')
 const purgecss = require('gulp-purgecss')
 const browserSync = require('browser-sync').create()
@@ -12,8 +11,12 @@ const postcssNested = require('postcss-nested')
 const postcssVars = require('postcss-simple-vars')
 
 // TODO: create production ready function
+// TODO: This is becoming a large file - break into individual files and import back here
 
-// Compile pages, layouts and partials into one file in the build dir
+/**
+ * Compile pages, layouts and partials
+ * -----------------------------------
+ */
 function compilePages () {
   // Return all html files in pages dir/sub dir
   return src('src/pages/**/*.html')
@@ -43,7 +46,10 @@ function refreshPanini (done) {
   done()
 }
 
-// Compile, tidy & insert css files
+/**
+ * Compile, tidy & insert css files
+ * --------------------------------
+ */
 function styles () {
   // Add plugins to array to be called in the postcss func
   const plugins = [
@@ -74,7 +80,11 @@ function styles () {
 }
 exports.styles = styles
 
-// Browsersync
+/**
+ * Browser-sync
+ * https://www.browsersync.io/
+ * ---------------------------
+ */
 function browsersync () {
   // Init browsersync and serve files from build dir
   // TODO: add files to watch
