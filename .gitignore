@@ -2,8 +2,7 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # Useful .gitignore templates: https://github.com/github/gitignore
 
-# ignore all files starting with . or ~
-.*
+# ignore all files starting with ~
 ~*
 
 # ignore node dependency directories

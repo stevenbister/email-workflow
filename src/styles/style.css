@@ -9,7 +9,7 @@ $colour: crimson;
 
   p {
     /* color: $colour; */
-    @mixin color $colour
+    @mixin color $colour;
   }
 
   .green {
