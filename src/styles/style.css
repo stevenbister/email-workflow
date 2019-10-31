@@ -11,4 +11,8 @@ $colour: crimson;
     /* color: $colour; */
     @mixin color $colour
   }
+
+  .green {
+    color: green;
+  }
 }

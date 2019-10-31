@@ -1,6 +1,7 @@
 // Packages
 // Gulp packages are loaded through gulp-load-plugins
 const { src, dest, watch, series, parallel } = require('gulp')
+const purgecss = require('gulp-purgecss')
 const browserSync = require('browser-sync').create()
 const panini = require('panini')
 const sourcemaps = require('gulp-sourcemaps')
@@ -44,6 +45,7 @@ function refreshPanini (done) {
 
 // Compile, tidy & insert css files
 function styles () {
+  // Add plugins to array to be called in the postcss func
   const plugins = [
     postcssImport,
     postcssMixins,
@@ -51,15 +53,22 @@ function styles () {
     postcssVars
   ]
   // Return css, pcss or postcss files
-  // TODO: Might be nice to check for pcss files too
-  // TODO: Add other postcss plugins
   return src('src/styles/**/*.css')
     // Init sourcemap 
     .pipe(sourcemaps.init())
-    // Run postcss
+    // Run postcss & plugins
     .pipe(postcss(plugins))
-    // // Write sourcemap
+    // Let's purge any unused css from the build stylesheet
+    .pipe(purgecss({
+      // Watch any html pages within the src dir
+      content: ['src/**/*.html'],
+      // Whitelist classes here - useful for client or esp specific classes
+      // More info: https://www.purgecss.com/whitelisting
+      whitelist: []
+    }))
+    // Write sourcemap
     .pipe(sourcemaps.write('./'))
+    // Push files to the build dir
     .pipe(dest('build/styles/'))
     .pipe(browserSync.stream())
 }
