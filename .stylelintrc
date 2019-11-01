@@ -5,6 +5,7 @@
       "ignoreAtRules": [
         "/mixin/"
       ]
-    }]
+    }],
+    "color-hex-length": "long"
   }
 }

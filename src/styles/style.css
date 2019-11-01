@@ -1,22 +1,3 @@
-@define-mixin color $color {
-  color: $color;
-}
-
-$colour: crimson;
-
-.test {
-  border: solid 1px blue;
-
-  p {
-    /* color: $colour; */
-    @mixin color $colour;
-  }
-
-  .green {
-    color: green;
-  }
-
-  @media (max-width: 600px) {
-    border: solid 1px red;
-  }
-}
+@import '_variables';
+@import '_mixins';
+@import '_reset';

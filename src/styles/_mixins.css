@@ -1,0 +1,10 @@
+@define-mixin media-query {
+  @media only screen and (max-width: 480px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin test-size-adjust {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}

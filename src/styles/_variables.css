@@ -1,0 +1,21 @@
+/* Colours */
+$blue: #005eff;
+$black: #020202;
+$grey: #888888;
+
+$primary-cta-colour: $blue;
+$primary-text-colour: $black;
+$preview-text-colour: $grey;
+
+/* Typography */
+$primary-font-family: Helvetica, Arial, sans-serif;
+$secondary-font-family: Arial, sans-serif;
+$primary-font-weight: 500;
+$h1-font-size: 24px;
+$h1-line-height: 28px;
+$h2-font-size: 22px;
+$h2-line-height: 26px;
+$p-font-size: 14px;
+$p-line-height: 22px;
+$preview-text-size: 12px;
+$preview-text-line-height: 16px;

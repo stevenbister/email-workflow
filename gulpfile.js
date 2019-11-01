@@ -72,8 +72,8 @@ function styles () {
     postcssNested,
     postcssVars
   ]
-  // Return css, pcss or postcss files
-  return src('src/styles/**/*.css')
+  // Return the main css stylesheet
+  return src('src/styles/style.css')
     // Init sourcemap 
     .pipe(sourcemaps.init())
     // Run postcss & plugins
