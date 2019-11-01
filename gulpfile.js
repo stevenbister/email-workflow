@@ -55,7 +55,7 @@ function compilepages () {
 exports.compilepages = compilepages
 
 // Refresh pages to rebuild layouts etc. this needs to happen as the pages task will not refresh on it's own
-function refreshPanini (done) {
+function refreshpanini (done) {
   panini.refresh()
   done()
 }
@@ -107,11 +107,11 @@ function browsersync () {
     }
   })
 
-  // Watch html files in pages dir and run compilePages func parallel
-  watch('src/pages/**/*.html', parallel(compilePages))
+  // Watch html files in pages dir and run compilepages func parallel
+  watch('src/pages/**/*.html', parallel(compilepages))
   watch('src/styles/**/*.css', parallel(styles))
   // Watch panini files and refresh on save
-  watch(['src/{root,layout,pages,partials}/**/*'], series(refreshPanini))
+  watch(['src/{root,layout,pages,partials}/**/*'], series(refreshpanini))
 }
 exports.browsersync = browsersync
 
