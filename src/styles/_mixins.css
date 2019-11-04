@@ -8,3 +8,20 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
+
+@define-mixin button $bg-color: $primary-cta-color, $color: #ffffff {
+  td {
+    background-color: $bg-color;
+
+    & a {
+      border: solid 1px $bg-color;
+      color: $color;
+      display: inline-block;
+      padding: 10px 12px;
+      text-align: center;
+      text-decoration: none;
+
+      @include textSizeAdjust;
+    }
+  }
+}

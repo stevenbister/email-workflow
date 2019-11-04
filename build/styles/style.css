@@ -59,5 +59,18 @@ table {
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
+.button td {
+    background-color: #005eff;
+  }
+.button td a {
+      border: solid 1px #005eff;
+      color: #ffffff;
+      display: inline-block;
+      padding: 10px 12px;
+      text-align: center;
+      text-decoration: none;
+
+      @include textSizeAdjust;
+    }
 
 /*# sourceMappingURL=style.css.map */

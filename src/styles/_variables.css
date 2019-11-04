@@ -3,9 +3,9 @@ $blue: #005eff;
 $black: #020202;
 $grey: #888888;
 
-$primary-cta-colour: $blue;
-$primary-text-colour: $black;
-$preview-text-colour: $grey;
+$primary-cta-color: $blue;
+$primary-text-color: $black;
+$preview-text-color: $grey;
 
 /* Typography */
 $primary-font-family: Helvetica, Arial, sans-serif;
