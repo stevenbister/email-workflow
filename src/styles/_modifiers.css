@@ -4,9 +4,11 @@
       display: block !important;
       margin: 0 auto !important;
     }
+
     &--fl-none {
       float: none !important;
     }
+
     &--none {
       display: none !important;
     }
