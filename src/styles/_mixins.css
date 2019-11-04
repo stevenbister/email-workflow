@@ -21,7 +21,7 @@
       text-align: center;
       text-decoration: none;
 
-      @include textSizeAdjust;
+      @mixin textSizeAdjust;
     }
   }
 }
