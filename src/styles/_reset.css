@@ -1,74 +1,71 @@
 /* purgecss start ignore */
 
 /* Client-specific Styles */
-#outlook a {
-  padding: 0;
-}
-
-/* Force Outlook to provide a "view in browser" menu link */
-body {
-  width: 100% !important;
+body,
+table,
+td,
+a {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
 }
-
-/* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
-.ExternalClass {
-  width: 100%;
-}
-
-/* Force Hotmail to display emails at full width */
-.ExternalClass,
-.ExternalClass p,
-.ExternalClass span,
-.ExternalClass font,
-.ExternalClass td,
-.ExternalClass div {
-  line-height: 100%;
-}
-
-/* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
-#backgroundTable {
-  margin: 0;
-  padding: 0;
-  width: 100% !important;
-  line-height: 100% !important;
-}
-
-/* End reset */
-
-/* Some sensible defaults for images */
-img {
-  outline: none;
-  text-decoration: none;
-  -ms-interpolation-mode: bicubic;
-}
-
-a img {
-  border: none;
-}
-
-.image_fix {
-  display: block;
-}
-
-/* Yahoo paragraph fix */
-p {
-  margin: 1em 0;
-}
-
-/* Outlook 07, 10 Padding issue */
-table td {
-  border-collapse: collapse;
-}
-
-/* Remove spacing around Outlook 07, 10 tables */
-table {
-  border-collapse: collapse;
+table,
+td {
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Reset styles */
+img {
+  border: 0;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse !important;
+}
+body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* iOS blue links */
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Gmail blue links */
+u + #body a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Samsung blue links */
+#MessageViewBody a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Android center fix */
+div[style*="margin: 16px 0;"] { margin: 0 !important; }
 
 /* purgecss end ignore */
