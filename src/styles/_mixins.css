@@ -17,6 +17,8 @@
       border: solid 1px $bg-color;
       color: $color;
       display: inline-block;
+      font-size: $p-font-size;
+      line-height: $p-line-height;
       padding: 10px 12px;
       text-align: center;
       text-decoration: none;
