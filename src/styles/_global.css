@@ -1,0 +1,52 @@
+body {
+  background-color: #ffffff;
+}
+
+table,
+td {
+  box-sizing: border-box;
+}
+
+table {
+  color: $primary-text-color;
+  font-family: $primary-font-family;
+  line-height: $p-line-height;
+  font-size: $p-font-size;
+  font-weight: $primary-font-weight;
+  table-layout: fixed;
+  text-align: left;
+}
+
+img {
+  border: 0;
+  display: block;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-bottom: $global-margin;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+}
+
+a {
+  color: $primary-cta-color;
+}
