@@ -108,7 +108,7 @@ function browsersync () {
   })
 
   // Watch html files in pages dir and run compilepages func parallel
-  watch('src/pages/**/*.html', parallel(compilepages))
+  watch('src/**/*.html', parallel(compilepages))
   watch('src/styles/**/*.css', parallel(styles))
   // Watch panini files and refresh on save
   watch(['src/{root,layout,pages,partials}/**/*'], series(refreshpanini))
