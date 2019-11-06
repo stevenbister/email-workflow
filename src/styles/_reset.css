@@ -5,14 +5,15 @@ body,
 table,
 td,
 a {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  @mixin test-size-adjust;
 }
+
 table,
 td {
   mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
+
 img {
   -ms-interpolation-mode: bicubic;
 }
@@ -25,14 +26,28 @@ img {
   outline: none;
   text-decoration: none;
 }
+
 table {
   border-collapse: collapse !important;
 }
+
 body {
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
 }
 
 /* iOS blue links */
@@ -66,6 +81,8 @@ u + #body a {
 }
 
 /* Android center fix */
-div[style*="margin: 16px 0;"] { margin: 0 !important; }
+div[style*="margin: 16px 0;"] {
+  margin: 0 !important;
+}
 
 /* purgecss end ignore */
