@@ -1,7 +1,20 @@
-.header__logo {
-  padding: 10px 0 20px;
+.header__content {
+  td {
+    @mixin media-query {
+      text-align: center !important;
+    }
+  }
+}
 
+.header__logo {
   a {
     display: inline-block;
   }
+}
+
+.header__web-link {
+  font-size: $preview-text-size;
+  line-height: $preview-text-line-height;
+  padding-top: 25px;
+  text-align: right;
 }

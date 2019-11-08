@@ -131,12 +131,20 @@ a {
   line-height: 20px;
   padding: 5px 0;
 }
-.header__logo {
-  padding: 10px 0 20px;
-}
+@media only screen and (max-width: 600px) {
+.header__content td {
+      text-align: center !important
+  }
+  }
 .header__logo a {
     display: inline-block;
   }
+.header__web-link {
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 25px;
+  text-align: right;
+}
 .button td {
     background-color: #005eff;
   }

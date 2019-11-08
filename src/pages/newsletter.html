@@ -5,36 +5,9 @@ description: preview text here
 
 <table cellpadding="0" cellspacing="0" border="0" width="600" class="container" role="presentation">
   <tr>
-    <td>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="row" role="presentation">
-        <tbody>
-          <tr>
-            <td align="center" class="row__cell">
-              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="column" role="presentation">
-                <tbody>
-                  <tr>
-                    <td>
-                      <h1>Heading 1</h1>
-                      <h2>Heading 2</h2>
-                      <h3>Heading 3</h3>
-                      <h4>Heading 4</h4>
-                      <p>Hello world. This is version 2.0</p>
-                      <p><a href="#">Link me up Scotty!</a></p>
-                      <ul>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                      </ul>
-
-                      {{> button}}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    {{!-- Center aligned td so the inner table will sit in the middle if it's got a smaller width --}}
+    <td align="center">
+      {{> content}}
     </td>
   </tr>
 </table>
