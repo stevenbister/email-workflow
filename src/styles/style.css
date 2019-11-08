@@ -2,4 +2,5 @@
 @import '_mixins';
 @import '_reset';
 @import '_global';
+@import '_layout';
 @import '_buttons';

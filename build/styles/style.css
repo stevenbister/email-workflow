@@ -110,6 +110,18 @@ h2 {
 a {
   color: #005eff;
 }
+@media only screen and (max-width: 600px) {
+.container,
+.row,
+.column {
+    width: 100% !important
+}
+  }
+@media only screen and (max-width: 600px) {
+.row__cell {
+    padding: 0 15px !important
+}
+  }
 .button td {
     background-color: #005eff;
   }
