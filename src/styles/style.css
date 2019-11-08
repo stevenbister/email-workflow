@@ -3,4 +3,6 @@
 @import '_reset';
 @import '_global';
 @import '_layout';
+@import '_preview-text';
+@import '_header';
 @import '_buttons';

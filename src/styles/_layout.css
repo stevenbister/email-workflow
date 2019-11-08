@@ -6,9 +6,3 @@
     width: 100% !important;
   }
 }
-
-.row__cell {
-  @mixin media-query {
-    padding: 0 $global-margin !important;
-  }
-}

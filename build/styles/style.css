@@ -131,6 +131,12 @@ a {
   line-height: 20px;
   padding: 5px 0;
 }
+.header__logo {
+  padding: 10px 0 20px;
+}
+.header__logo a {
+    display: inline-block;
+  }
 .button td {
     background-color: #005eff;
   }
