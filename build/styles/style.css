@@ -91,6 +91,14 @@ table {
   table-layout: fixed;
   text-align: left;
 }
+img {
+  border: 0;
+  display: block;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
 h1,
 h2,
 h3,
@@ -117,11 +125,12 @@ a {
     width: 100% !important
 }
   }
-@media only screen and (max-width: 600px) {
-.row__cell {
-    padding: 0 15px !important
+.preview-text {
+  color: #888888;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 0;
 }
-  }
 .button td {
     background-color: #005eff;
   }

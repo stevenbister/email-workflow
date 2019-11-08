@@ -1,0 +1,6 @@
+.preview-text {
+  color: $preview-text-color;
+  font-size: $preview-text-size;
+  line-height: $preview-text-line-height;
+  padding: 5px 0;
+}
