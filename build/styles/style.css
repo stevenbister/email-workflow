@@ -126,9 +126,13 @@ a {
   }
 @media only screen and (max-width: 480px) {
 .column td {
-    padding: 0 15px
+    padding-left: 15px !important;
+    padding-right: 15px !important
 }
   }
+.main__content {
+  padding: 0 15px 15px;
+}
 .preview-text {
   color: #888888;
   font-size: 14px;
@@ -151,6 +155,17 @@ a {
   line-height: 20px;
   text-align: right;
 }
+.footer {
+  border-top: solid 2px #888888;
+}
+.footer__content td {
+  padding: 15px 0;
+}
+@media only screen and (max-width: 480px) {
+.footer__content td {
+    padding: 15px !important
+}
+  }
 .button td {
     background-color: #005eff;
   }
