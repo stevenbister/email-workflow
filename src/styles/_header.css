@@ -1,7 +1,10 @@
 .header__content {
   td {
     @mixin media-query {
+      display: block !important;
+      padding-bottom: 5px;
       text-align: center !important;
+      width: 100% !important;
     }
   }
 }
@@ -15,6 +18,5 @@
 .header__web-link {
   font-size: $preview-text-size;
   line-height: $preview-text-line-height;
-  padding-top: 25px;
   text-align: right;
 }

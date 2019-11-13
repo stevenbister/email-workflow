@@ -3,32 +3,19 @@
   <tbody>
     <tr>
       <td align="center">
-        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="row" role="presentation">
+        {{!-- Making use of the reverse stacking columns hack here: https://www.campaignmonitor.com/blog/email-marketing/2019/04/order-stacked-columns-responsive-email/ --}}
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" dir="rtl" class="column header__content" role="presentation">
           <tbody>
             <tr>
-              <td align="center">
-                <table cellpadding="0" cellspacing="0" border="0" align="left" width="50%" class="column header__content" role="presentation" >
-                  <tbody>
-                    <tr>
-                      <td align="center" class="header__logo">
-                        <a href="#" >
-                          <img src="https://placehold.it/300x70" alt="" width="300" height="40" />
-                        </a>
-                      </td>                      
-                    </tr>
-                  </tbody>
-                </table>
-                <!--[if mso]></td><td><![end if]-->
-                <table cellpadding="0" cellspacing="0" border="0" align="right" width="50%" class="column header__content" role="presentation">
-                  <tbody>
-                    <tr>
-                      <td align="center" class="header__web-link">
-                        <a href="#">View this email online</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <td align="center" width="50%" dir="ltr" class="header__web-link">
+                <a href="#">View this email online</a>
               </td>
+              
+              <td align="center" width="50%" dir="ltr" class="header__logo">
+                <a href="#" >
+                  <img src="https://placehold.it/300x70" alt="" width="300" height="40" />
+                </a>
+              </td>                      
             </tr>
           </tbody>
         </table>

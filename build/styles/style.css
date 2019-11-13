@@ -118,11 +118,15 @@ h2 {
 a {
   color: #005eff;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
 .container,
-.row,
 .column {
     width: 100% !important
+}
+  }
+@media only screen and (max-width: 480px) {
+.column td {
+    padding: 0 15px
 }
   }
 .preview-text {
@@ -131,9 +135,12 @@ a {
   line-height: 20px;
   padding: 5px 0;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
 .header__content td {
-      text-align: center !important
+      display: block !important;
+      padding-bottom: 5px;
+      text-align: center !important;
+      width: 100% !important
   }
   }
 .header__logo a {
@@ -142,7 +149,6 @@ a {
 .header__web-link {
   font-size: 14px;
   line-height: 20px;
-  padding-top: 25px;
   text-align: right;
 }
 .button td {
