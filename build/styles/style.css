@@ -42,7 +42,7 @@ h6,
 p,
 ul,
 li {
-  margin: 0;
+  margin-top: 0;
 }
 /* iOS blue links */
 a[x-apple-data-detectors] {
@@ -106,6 +106,9 @@ h4,
 p,
 ul {
   margin-bottom: 15px;
+
+  /* Capital 'm' used for Outlook fix */
+  Margin-bottom: 15px;
 }
 h1 {
   font-size: 32px;
