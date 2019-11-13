@@ -25,8 +25,6 @@ const browserSync = require('browser-sync').create()
 const fs = require('fs')
 const del = require('del')
 
-// TODO: This is becoming a large file - break into individual files and import back here
-
 /**
  * Compile pages, layouts and partials
  * -----------------------------------
