@@ -1,8 +1,13 @@
 .container,
 .row,
 .column {
-
   @mixin media-query {
     width: 100% !important;
+  }
+}
+
+.column td {
+  @mixin media-query {
+    padding: 0 $global-margin;
   }
 }
