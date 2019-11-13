@@ -8,6 +8,11 @@
 
 .column td {
   @mixin media-query {
-    padding: 0 $global-margin;
+    padding-left: $global-margin !important;
+    padding-right: $global-margin !important;
   }
+}
+
+.main__content {
+  padding: 0 $global-margin $global-margin;
 }
