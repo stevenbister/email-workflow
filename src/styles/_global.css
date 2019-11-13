@@ -35,6 +35,9 @@ h6,
 p,
 ul {
   margin-bottom: $global-margin;
+
+  /* Capital 'm' used for Outlook fix */
+  Margin-bottom: $global-margin;
 }
 
 h1 {
