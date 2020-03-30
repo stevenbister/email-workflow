@@ -172,6 +172,7 @@ a {
   }
 .footer__content td * {
     color: rgb(0, 0, 0);
+    text-decoration: none;
   }
 .button td {
     background-color: rgb(74, 70, 92);
