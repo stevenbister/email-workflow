@@ -18,3 +18,7 @@
 .text--center {
   text-align: center;
 }
+
+.img--full-width {
+  width: 100% !important;
+}
