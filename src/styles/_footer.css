@@ -1,5 +1,5 @@
 .footer {
-  border-top: solid 2px #888888;
+  background-color: $general-muted-light;
 }
 
 .footer__content td {
@@ -7,5 +7,9 @@
 
   @mixin media-query {
     padding: $global-margin !important;
+  }
+
+  * {
+    color: $black;
   }
 }

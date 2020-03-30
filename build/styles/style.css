@@ -1,3 +1,4 @@
+@import url('https://use.typekit.net/xpf0vcv.css');
 /* Colours */
 /* Typography */
 /* Client-specific Styles */
@@ -83,11 +84,12 @@ td {
   box-sizing: border-box;
 }
 table {
-  color: #2b2b2b;
-  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(60, 60, 60);
+  font-family: gill-sans-nova, Helvetica Neue, Helvetica, Roboto, Arial,
+  sans-serif;
   line-height: 26px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   table-layout: fixed;
   text-align: left;
 }
@@ -108,7 +110,8 @@ ul {
   margin-bottom: 15px;
 
   /* Capital 'm' used for Outlook fix */
-  Margin-bottom: 15px;
+  margin-bottom: 15px;
+  font-weight: 400;
 }
 h1 {
   font-size: 32px;
@@ -119,7 +122,7 @@ h2 {
   line-height: 32px;
 }
 a {
-  color: #005eff;
+  color: rgb(74, 70, 92);
 }
 @media only screen and (max-width: 480px) {
 .container,
@@ -140,7 +143,7 @@ a {
   color: #888888;
   font-size: 14px;
   line-height: 20px;
-  padding: 5px 0;
+  padding: 5px 0 10px;
 }
 @media only screen and (max-width: 480px) {
 .header__content td {
@@ -154,12 +157,10 @@ a {
     display: inline-block;
   }
 .header__web-link {
-  font-size: 14px;
-  line-height: 20px;
   text-align: right;
 }
 .footer {
-  border-top: solid 2px #888888;
+  background-color: rgba(128, 120, 136, 0.4);
 }
 .footer__content td {
   padding: 15px 0;
@@ -169,16 +170,19 @@ a {
     padding: 15px !important
 }
   }
+.footer__content td * {
+    color: rgb(0, 0, 0);
+  }
 .button td {
-    background-color: #005eff;
+    background-color: rgb(74, 70, 92);
   }
 .button td a {
-      border: solid 1px #005eff;
+      border: solid 1px rgb(74, 70, 92);
       color: #ffffff;
       display: inline-block;
       font-size: 18px;
       line-height: 26px;
-      padding: 10px 12px;
+      padding: 8px 28px;
       text-align: center;
       text-decoration: none;
 

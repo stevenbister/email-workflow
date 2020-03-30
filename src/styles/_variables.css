@@ -1,12 +1,24 @@
 /* Colours */
-$primary-cta-color: #005eff;
-$primary-text-color: #2b2b2b;
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$grey: rgb(60, 60, 60);
+$weddings: rgb(220, 189, 108);
+$weddings-muted: rgb(231, 210, 158);
+$general: rgb(74, 70, 92);
+$general-muted: rgb(128, 120, 136);
+$general-muted-light: rgba(128, 120, 136, 0.4);
+$meetings: rgb(63, 108, 114);
+$meetings-muted: rgb(179, 194, 200);
+
+$primary-cta-color: $general;
+$primary-text-color: $grey;
 $preview-text-color: #888888;
 
 /* Typography */
-$primary-font-family: Helvetica, Arial, sans-serif;
+$primary-font-family: gill-sans-nova, Helvetica Neue, Helvetica, Roboto, Arial,
+  sans-serif;
 $secondary-font-family: Arial, sans-serif;
-$primary-font-weight: 500;
+$primary-font-weight: 400;
 $h1-font-size: 32px;
 $h1-line-height: 38px;
 $h2-font-size: 24px;
