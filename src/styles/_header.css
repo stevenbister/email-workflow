@@ -17,4 +17,5 @@
 
 .header__web-link {
   text-align: right;
+  font-size: $preview-text-size;
 }

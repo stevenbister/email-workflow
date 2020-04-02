@@ -6,7 +6,7 @@ $weddings: rgb(220, 189, 108);
 $weddings-muted: rgb(231, 210, 158);
 $general: rgb(74, 70, 92);
 $general-muted: rgb(128, 120, 136);
-$general-muted-light: rgba(128, 120, 136, 0.4);
+$general-muted-light: #ccc9cf;
 $meetings: rgb(63, 108, 114);
 $meetings-muted: rgb(179, 194, 200);
 
@@ -15,10 +15,9 @@ $primary-text-color: $grey;
 $preview-text-color: #888888;
 
 /* Typography */
-$primary-font-family: gill-sans-nova, Helvetica Neue, Helvetica, Roboto, Arial,
-  sans-serif;
+$primary-font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
 $secondary-font-family: Arial, sans-serif;
-$primary-font-weight: 400;
+$primary-font-weight: 300;
 $h1-font-size: 32px;
 $h1-line-height: 38px;
 $h2-font-size: 24px;
@@ -27,8 +26,8 @@ $h3-font-size: 22px;
 $h3-line-height: 28px;
 $h4-font-size: 20px;
 $h4-line-height: 24px;
-$p-font-size: 18px;
-$p-line-height: 26px;
+$p-font-size: 16px;
+$p-line-height: 24px;
 $preview-text-size: 14px;
 $preview-text-line-height: 20px;
 $global-margin: 15px;
